@@ -1,0 +1,316 @@
+@use "./consts_and_imports" as consts;
+
+.main-page-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-label {
+    
+    background: linear-gradient(155deg, #154b9c, #213b7f);
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: consts.$wide-screen){
+        margin-top:53px;
+    }
+    .label-line-1 {
+        font-size: 40px;
+        padding: 0;
+        margin: 0;
+
+        @media (min-width: consts.$mid-screen) {
+            font-size: 60px;
+        }
+
+        @media (min-width: consts.$wide-screen) {
+            font-size: 80px;
+            
+        }
+    }
+
+    .label-line-2 {
+        margin: 0;
+        padding: 0;
+        font-size: 40px;
+        font-weight: 700;
+
+        @media (min-width: consts.$mid-screen) {
+            font-size: 60px;
+        }
+
+        @media (min-width: consts.$wide-screen) {
+            font-size: 80px;
+        }
+    }
+}
+.main__first-section {
+    width: 100%;
+    max-width: 1074px;
+    display: flex;
+    flex-direction: column;
+}
+.secondary-label {
+    background-color: #eff6df;
+    color: black;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    padding: 0;
+    margin:0;
+}
+
+.career-label {
+    margin: 30px;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    overflow-wrap: normal;
+
+    @media (min-width: consts.$wide-screen) {
+        grid-area: careers_header;
+    }
+}
+
+.careers-and-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: consts.$wide-screen) {
+        margin:0;
+        display: grid;
+        width:100%;
+        grid-template-columns: 50% 20% 30%;
+        grid-template-rows: 20% 80%;
+        grid-template-areas:
+            " careers_header . ."
+            "careers_container . form ";
+    }
+}
+
+.career-container__careers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 3px;
+
+    @media (min-width: consts.$mid-screen) {
+        width: auto;
+        height: auto;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    @media (min-width: consts.$wide-screen) {
+        width:100%;
+        display:grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 30% 30% 40%; 
+        justify-content: center;
+        align-items: center;
+        gap:0;
+        row-gap: 0;
+        grid-area: careers_container;
+    }
+}
+
+.career-container {
+    border: 1px solid hsla(0, 0%, 80%, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+    &:hover{
+        opacity: .7;
+    }
+    
+
+    @media (min-width: consts.$mid-screen) {
+        width: 10rem;
+        height:10rem;
+        border: none;
+    }
+
+    @media(min-width: consts.$wide-screen){
+        width:100%;
+        height:100%;
+    }
+
+    .line {
+        height: 30px;
+        width: 5px;
+        margin: 7px 0px;
+        border-radius: 30px;
+
+        @media (min-width: consts.$mid-screen) {
+            height: 5px;
+            width: 50px;
+        }
+    }
+
+    img {
+        width: 30px;
+        height: 30px;
+
+        @media (min-width: consts.$mid-screen) {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .icon-container {
+        width: 20px;
+        height: 20px;
+        justify-self: end;
+
+        @media (min-width: consts.$mid-screen) {
+            display: none;
+        }
+    }
+}
+
+.careers__career {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+    text-overflow: wrap;
+
+    @media (min-width: consts.$mid-screen) {
+        flex-direction: column;
+        height:100%;
+    }
+}
+
+.contact-us-container {
+    display: none;
+    @media (min-width: consts.$wide-screen) {
+        grid-area: form;
+        display: block;
+        background-color: #184794;
+        margin: 0;
+        padding: 1rem;
+    }
+}
+
+.contact-us-form {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    background-color: #184794;
+    gap: 0.8rem;
+
+    .form-main-part {
+        padding: 1.5rem;
+        padding-top: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+
+        h1 {
+            color: white;
+        }
+
+        .form-line {
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: stretch;
+            align-items: center;
+            padding: 1rem 0 1rem 0;
+            background-color: white;
+            overflow: hidden;
+
+            label {
+                width: 30%;
+                padding: 0;
+                margin: 0;
+                font-size: 0.8rem;
+                padding-right: 0.1rem;
+            }
+
+            .separator {
+                width: 0.1rem;
+                height: 1.5rem;
+                background-color: #154b9c;
+                border-radius: 30%;
+            }
+
+            input {
+                width: 55%;
+                height: 100%;
+                border: none;
+
+                &:focus,
+                &:focus-visible {
+                    outline: none !important;
+                    border: none !important;
+                }
+
+                &::placeholder{
+                    color:white !important;
+                }
+
+                &.visible-place-holder::placeholder{
+                    color:red !important;
+                }
+            }
+        }
+    }
+
+    .checkbox-line {
+        font-size: 0.7rem;
+        color: white;
+        font-weight: bold;
+    }
+
+    a {
+        color: white;
+    }
+
+    .outer-button-square {
+        background-color: #fff6df;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        padding:0;
+        margin:0;
+        cursor:pointer;
+        
+    }
+
+    .inner-button-square {
+        padding: 0 2rem 0 2rem;
+        border:1px solid #00b8d4;
+        width: 99%;
+        height: 95%;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 600;
+        cursor:inherit;
+
+    }
+}

@@ -1,0 +1,302 @@
+@use "./consts_and_imports" as consts;
+
+.blue-background-container {
+    margin-top: 100px;
+    padding: 50px;
+    background: consts.$background-image;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: consts.$wide-screen) {
+        &.shadowed {
+            
+            box-shadow: 3px -19px 50px -28px rgba(0, 0, 0, 0.69);
+        }
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+.why-us {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+
+    ol {
+        display: block;
+        list-style-type: decimal;
+        margin-block-start: 1rem;
+        margin-block-end: 1rem;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+        padding-right: 20px;
+    }
+
+    .text-div {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 1.1rem;
+    }
+
+    .text-div.blue {
+        color: blue;
+    }
+
+    .text-div.bold {
+        font-weight: bold;
+    }
+
+    span.bold {
+        font-weight: bold;
+    }
+
+    span.underline {
+        text-decoration: underline;
+    }
+}
+
+.why-us__cards-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    @media (min-width: consts.$wide-screen) {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.why-us__card {
+    padding: 0.5rem;
+    padding-top: 10px;
+
+    @media (min-width: consts.$wide-screen) {
+        width: 30%;
+        transition: all 1s linear;
+
+        &:hover {
+            transform: scale(1.1);
+            box-shadow: 10px 10px 50px #000;
+        }
+    }
+    &.black {
+        background-color: black;
+        color: white;
+    }
+
+    &.white {
+        background-color: #eff6df;
+        color: black;
+    }
+}
+
+.why-us__black-card {
+    padding: 0.5rem;
+    padding-top: 10px;
+    background-color: black;
+    color: white;
+
+    @media (min-width: consts.$wide-screen) {
+        width: 30%;
+    }
+}
+
+.why-us__white-card {
+    padding-top: 10px;
+    background-color: #eff6df;
+    color: black;
+
+    @media (min-width: consts.$wide-screen) {
+        width: 30%;
+    }
+}
+
+.alumni-container {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        margin: 20px;
+        margin-bottom:40px;
+        padding: 0;
+    }
+}
+
+.alumni-images {
+    display: flex;
+    flex-wrap: wrap;
+    // padding: 50px;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        max-height: 100px;
+        max-width: 100px;
+    }
+
+    @media (min-width: consts.$wide-screen) {
+        gap: 40px;
+    }
+}
+
+.about-us {
+    h1 {
+        padding-bottom: 50px;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    
+    span.bold {
+        font-weight: bold;
+    }
+}
+
+.the-method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.the-method__section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+
+    .triangle {
+        display: none;
+
+        @media (min-width: consts.$full-size-methods-section) {
+            &.down {
+                display: block;
+                position: absolute;
+                bottom: 299px;
+                right: 1130px;
+                border-left: 30px solid transparent;
+                border-right: 30px solid transparent;
+                border-top: 30px solid #39a4dc;
+                z-index: 1;
+                margin-bottom: 150px;
+            }
+
+            &.left {
+                display: block;
+                position: absolute;
+                bottom: 384px;
+                right: 620px;
+                border-top: 30px solid transparent;
+                border-bottom: 30px solid transparent;
+                border-left: 30px solid #0066ff;
+                z-index: 1;
+            }
+
+            &.right {
+                display: block;
+                position: absolute;
+                bottom: 875px;
+                right: 646px;
+                border-top: 30px solid transparent;
+                border-bottom: 30px solid transparent;
+                border-right: 30px solid #0598a8;
+                z-index: 1;
+            }
+        }
+    }
+
+    @media (min-width: consts.$full-size-methods-section) {
+        position: relative;
+        display: grid;
+        gap: 0;
+        align-items: center;
+        width: consts.$full-size-methods-section;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "1 2"
+            "3 4";
+    }
+}
+
+.the-method__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
+
+    @media (min-width: consts.$full-size-methods-section) {
+        height: 100%;
+        width: 100%;
+        padding: 50px;
+    }
+    .inner-section {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.6s linear;
+        color: white;
+
+        .inner-header{
+            display: none;
+
+            @media (min-width: consts.$full-size-methods-section) {
+                display:block;
+                
+            }
+        }
+
+        il {
+            list-style: none;
+        }
+
+        @media (min-width: consts.$full-size-methods-section) {
+            height: 100%;
+            width: 100%;
+            padding: 5px;
+            max-height: 1000px;
+            transition:none;
+        }
+    }
+
+    &.open .inner-section {
+        max-height: 1000px;
+    }
+
+    .section-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        @media (min-width: consts.$full-size-methods-section) {
+            display: none;
+        }
+
+        .expand-icon {
+            font-size: 3rem;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        .section-header__title {
+            margin: 0;
+            padding: 0;
+            font-size: 1.5rem;
+            font-weight: normal;
+            color: white;
+        }
+    }
+}

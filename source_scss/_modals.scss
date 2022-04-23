@@ -1,0 +1,210 @@
+@use "./consts_and_imports" as consts;
+
+
+.contact-us-modal-container {
+    display: none;
+    @media (min-width: consts.$wide-screen) {
+        display: flex;
+        position: fixed;
+        top: 0;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        background: none 0 0 / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0.31);
+        z-index: 500000000;
+        transition: all 0.5s ease-out;
+        max-height: 0;
+        overflow: hidden;
+        transform: translateY(-100vh);
+
+        &.open {
+            transform: translateY(0);
+            max-height: 110vh;
+        }
+
+        .form-header-container {
+            margin-top: 30px;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .form-header {
+                width: 75%;
+                text-align: center;
+                color: #154b9c;
+                font-weight: 800;
+                font-size: 2rem;
+                z-index: 1;
+                margin: 10px 0;
+                max-width: 450px;
+            }
+        }
+        .modal-form-content {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            color: #040ea3;
+            width: 55vw;
+            z-index: 1;
+            justify-content: center;
+        }
+    }
+}
+
+.modal-form-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+input.modal-line {
+    color: #040ea3;
+    font-weight: 800;
+    width: 400px;
+    height: 7vh;
+    margin: 15px 0;
+    padding-right: 5px;
+    border: 0 solid #352f8a;
+    box-shadow: 0 0 4px -1px #213b7f;
+}
+
+.modal-main-part {
+    z-index: -1;
+    background: #fff;
+    position: relative;
+    flex-wrap: wrap;
+    width: 610px;
+    height: 610px;
+    border-radius: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    background-size: cover;
+    background-image: consts.$background-modal;
+    background-repeat: no-repeat;
+
+    .close-button {
+        display: flex;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        margin-top: 20px;
+        flex-shrink: 0;
+        cursor: pointer;
+
+        .line {
+            width: 2px;
+            height: 30px;
+            background: #000;
+
+            &.second {
+                transform: rotate(45deg);
+            }
+
+            &.first {
+                transform: rotate(130deg);
+            }
+        }
+    }
+}
+
+.modal-checkbox-container {
+    margin: 5px 0 10px;
+    width: 330px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.modal-button {
+    cursor: pointer;
+    background: #154b9c;
+    width: 210px;
+    border: none;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 5px;
+    height: 50px;
+}
+
+input.error {
+    &::placeholder {
+        color: red !important;
+        font-weight: bold !important;
+    }
+}
+
+.form-submit-modal {
+    display: none;
+
+    &.open {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        width: 100vw;
+        height: 100vh;
+        background: none 0 0 / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0.31);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.form-submit-modal__content {
+    height: 400px;
+    width: 600px;
+    background: #fff;
+    position: relative;
+    padding: 25px 15px 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    .icon-container {
+        height: 30px;
+        width: 30px;
+        align-self: flex-end;
+
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    h1 {
+        color: #000;
+        direction: rtl;
+        font-size: 4rem;
+        margin: -10px 0 10px;
+        text-align: center;
+    }
+
+    .modal-content {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        text-align: start;
+        color: #000;
+        @media (min-width: consts.$wide-screen) {
+            font-size: 2.4rem;
+        }
+    }
+
+    .big-icon-container{
+        height: 80px;
+        width: 80px;
+        align-self: flex-end;
+
+        svg{
+            color:#008000;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

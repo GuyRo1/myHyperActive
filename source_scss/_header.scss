@@ -1,0 +1,254 @@
+@use "./consts_and_imports" as consts;
+.main-menu {
+    width: 100%;
+    height: 53px;
+    position: relative;
+    top: 0px;
+    z-index: 10;
+    
+
+    @media (min-width: consts.$wide-screen) {
+        justify-content: center;
+        position: fixed;
+        top: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    @media (min-width: consts.$wide-screen) {
+        height: 73px;
+    }
+}
+
+.non-mobile-drop-down-menu {
+    display: none;
+}
+
+@media (min-width: consts.$wide-screen) {
+    .non-mobile-drop-down-container:hover + .non-mobile-drop-down-menu,
+    .non-mobile-drop-down-menu:hover {
+        height: 35vh;
+        width: 100%;
+        background: #213a7f;
+        position: absolute;
+        top: 49px;
+        display: flex;
+        flex-flow: column;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-top: 8px;
+        padding-right: 8px;
+        z-index: 20;
+
+        a {
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+
+            &:hover {
+                color: #213a7f;
+                background-color: white;
+            }
+        }
+    }
+}
+
+.non-mobile-nav-container {
+    width: 50rem;
+    position: relative;
+    display: none;
+
+    @media (min-width: consts.$wide-screen) {
+        display: block;
+    }
+}
+
+.navigation-bar {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-content: center;
+    vertical-align: middle;
+    background: white;
+    
+
+    @media (min-width: consts.$wide-screen) {
+        justify-content: center;
+        top: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+.mobile-button {
+    margin: 7px 0px auto 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+
+    .line {
+        height: 5px;
+        width: 40px;
+        background: #213a7f;
+        margin: 7px 0px;
+        border-radius: 30px;
+        transition: all linear 0.2s;
+    }
+
+    #top-line.open {
+        transform: translate(0, 12px) rotate(45deg);
+    }
+
+    #top-line.closed {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    #bottom-line.open {
+        transform: translate(0, -12px);
+        transform: rotate(-45deg);
+    }
+
+    #bottom-line.closed {
+        transform: rotate(0deg);
+        transform: translate(0, 0);
+    }
+
+    #middle-line.open {
+        display: none;
+    }
+
+    #middle-line.closed {
+        display: block;
+    }
+    @media (min-width: consts.$wide-screen) {
+        display: none;
+    }
+}
+
+.logo-container {
+    text-decoration: none;
+    width: 160px;
+    height: 100%;
+    position: relative;
+    flex-direction: column;
+
+    .logo {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .logo-subtitle {
+        display: inline-block;
+        position: absolute;
+        top: 65%;
+        right: 12px;
+        text-decoration: none;
+        color: #7e685a;
+        font-size: 9.6px;
+        font-family: "Assistant", sans-serif;
+        font-weight: 700;
+    }
+}
+
+.non-mobile-navigation-links {
+    display: none;
+
+    @media (min-width: consts.$wide-screen) {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        align-content: center;
+        gap: 5px;
+
+        .separator {
+            display: inline-block;
+            font-size: 1.5rem;
+            color: #000;
+            font-weight: 400;
+            transform: scale(1) !important;
+            align-self: center;
+            padding-bottom: 8px;
+        }
+
+        .non-mobile-drop-down-menu-arrow {
+            padding-bottom: 4px;
+        }
+
+        .non-mobile-drop-down-container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: default;
+        }
+
+        .non-mobile-nav-link {
+            padding-right: 0;
+            font-weight: 400;
+            font-size: 14px;
+
+            &:hover {
+                color: #213a7f;
+                font-weight: 700;
+            }
+
+            a {
+                color: black;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.mobile-menu {
+    display: none;
+
+    &.open {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        background-color: white;
+
+        a {
+            font-size: x-large;
+            text-decoration: none;
+            color: black;
+        }
+
+        @media (min-width: consts.$wide-screen) {
+            display: none;
+        }
+    }
+}
+
+.drop-down-menu {
+    display: none;
+
+    .link-container {
+        padding: 5px;
+        border-bottom: 1px dotted greenyellow;
+    }
+
+    &.open {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+    }
+}
+
+.drop-down-container {
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+    .drop-down-menu-arrow {
+        padding-bottom: 4px;
+    }
+}
